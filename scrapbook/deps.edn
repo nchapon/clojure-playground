@@ -1,0 +1,28 @@
+{:paths ["src" "resources"],
+ :deps
+ {org.clojure/clojure {:mvn/version "1.11.1"},
+  ring/ring-defaults {:mvn/version "0.3.4"},
+  ring/ring-session-timeout {:mvn/version "0.2.0"},
+  org.postgresql/postgresql {:mvn/version "42.5.0"},
+  migratus/migratus {:mvn/version "1.4.4"},
+  rum/rum {:mvn/version "0.12.10"},
+  metosin.forks/jdbc-ring-session {:mvn/version "1.2"},
+  yogthos/config {:mvn/version "1.2.0"},
+  ring/ring {:mvn/version "1.9.6"}},
+ :aliases
+ {:run-m {:main-opts ["-m" "nchapon.scrapbook"]},
+  :run-x
+  {:ns-default nchapon.scrapbook,
+   :exec-fn greet,
+   :exec-args {:name "Clojure"}},
+  :build
+  {:deps
+   {io.github.seancorfield/build-clj
+    {:git/tag "v0.8.2", :git/sha "0ffdb4c", :deps/root "slim"}},
+   :ns-default build},
+  :test
+  {:extra-paths ["test"],
+   :extra-deps
+   {org.clojure/test.check {:mvn/version "1.1.1"},
+    io.github.cognitect-labs/test-runner
+    {:git/tag "v0.5.0", :git/sha "48c3c67"}}}}}

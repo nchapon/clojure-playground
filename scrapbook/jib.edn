@@ -1,0 +1,3 @@
+{:main nchapon.scrapbook
+ :target-image {:image-name "nchapon/scrapbook"
+                :type :docker}}

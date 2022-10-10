@@ -1,0 +1,6 @@
+{:port 8080
+ :db {:subprotocol "postgresql"
+      :subname "postgres"
+      :user "postgres"
+      :password "scrapsafe"
+      :dbtype "postgresql"}}

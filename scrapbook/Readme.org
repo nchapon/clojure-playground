@@ -1,0 +1,47 @@
+* scrapbook
+
+Source code from Clojure Cloud Ready articles with Docker deployment
+- https://javahippie.net/clojure/cloud/2020/04/20/clojurenative01.html
+- https://javahippie.net/clojure/cloud/2020/04/21/clojurenative02.html
+- https://javahippie.net/clojure/cloud/2020/05/04/clojurenative03.html
+- https://javahippie.net/clojure/cloud/2020/08/23/clojurenative04.html
+
+  
+
+** Run the application
+*** Start the database
+
+#+begin_src shell
+docker run -p 5432:5432 --name scrapbook_db -e POSTGRES_PASSWORD=scrapsafe -d postgres:14
+#+end_src
+
+*** Start the application
+
+#+begin_src 
+clojure -M nchapon.scrapbook
+#+end_src
+
+Visit the application http://localhost:8080
+
+** Run the application with Docker
+
+Build a docker image with Jib  
+
+JIB Cf https://blog.atomist.com/containerizing-a-clojure-project/
+
+#+begin_src shell
+clj -Tjib build 
+#+end_src
+
+
+Run the application with docker
+
+#+begin_src shell
+docker run --network host --rm -p 8080:8080 nchapon/scrapbook
+#+end_src
+
+Visit http://localhost:8080/
+
+
+
+
